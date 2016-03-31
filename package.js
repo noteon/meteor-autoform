@@ -1,17 +1,19 @@
 Package.describe({
-  name: "autoform",
-  summary: "Provides UI components that allow you to easily create forms with automatic insert and update events, and automatic reactive validation."
+  name: "qinghai:autoform",
+  git:"https://github.com/noteon/meteor-autoform",
+  version:"0.5.1",
+  summary: "Migrate from Meteor 0.8."
 });
 
 Package.on_use(function(api) {
-  api.use(['underscore', 'deps', 'templating', 'handlebars', 'moment', 'ui'], 'client');
-  api.use('reload', 'client', {weak: true});
-  api.use('collection2', ['client', 'server'], {weak: true});
-  api.use('simple-schema', ['client', 'server']);
+  api.use(['underscore@1.0.1', 'deps@1.0.5', 'templating@1.0.8', 'handlebars@1.0.1', 'momentjs:moment@2.10.6', 'ui@1.0.4'], 'client');
+  api.use('reload@1.1.1', 'client', {weak: true});
+  api.use('qinghai:collection2@0.3.11_1', ['client', 'server'], {weak: true});
+  api.use('qinghai:simple-schema@0.2.45_1', ['client', 'server']);
 
   if (typeof api.export !== 'undefined') {
-    api.use('livedata', 'client');
-    api.imply('simple-schema', 'client');
+    api.use('livedata@1.0.11', 'client');
+    api.imply('qinghai:simple-schema@0.2.45_1', 'client');
     api.export('AutoForm', 'client');
     api.export('Utility', 'client', {testOnly: true});
   }
@@ -39,7 +41,7 @@ Package.on_use(function(api) {
 });
 
 Package.on_test(function (api) {
-  api.use(['autoform', 'tinytest', 'underscore']);
+  api.use(['qinghai:autoform', 'tinytest', 'underscore']);
   api.add_files('tests/utility-tests.js');
   api.add_files('tests/autoform-tests.js');
 });
