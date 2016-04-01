@@ -1,12 +1,12 @@
 Package.describe({
   name: "qinghai:autoform",
   git:"https://github.com/noteon/meteor-autoform",
-  version:"0.5.1",
+  version:"0.5.1_2",
   summary: "Migrate from Meteor 0.8."
 });
 
 Package.on_use(function(api) {
-  api.use(['underscore@1.0.1', 'deps@1.0.5', 'templating@1.0.8', 'handlebars@1.0.1', 'momentjs:moment@2.10.6', 'ui@1.0.4'], 'client');
+  api.use(['underscore@1.0.1', 'deps@1.0.5', 'templating@1.0.8', 'handlebars@1.0.1', 'momentjs:moment@2.10.6', 'blaze@2.0.2'], 'client');
   api.use('reload@1.1.1', 'client', {weak: true});
   api.use('qinghai:collection2@0.3.11_1', ['client', 'server'], {weak: true});
   api.use('qinghai:simple-schema@0.2.45_1', ['client', 'server']);
@@ -40,8 +40,8 @@ Package.on_use(function(api) {
   ], 'client');
 });
 
-Package.on_test(function (api) {
-  api.use(['qinghai:autoform', 'tinytest', 'underscore']);
-  api.add_files('tests/utility-tests.js');
-  api.add_files('tests/autoform-tests.js');
-});
+// Package.on_test(function (api) {
+//   api.use(['qinghai:autoform', 'tinytest', 'underscore']);
+//   api.add_files('tests/utility-tests.js');
+//   api.add_files('tests/autoform-tests.js');
+// });
